@@ -43,7 +43,6 @@
                                     android:layout_weight="50"
                                     android:fontFamily="@font/amaranth_bold"
                                     android:gravity="top"
-                                    android:text="Chahrazed"
                                     android:textAlignment="center"
                                     android:textColor="@color/colorPrimary"
                                     android:textSize="18sp" />
@@ -283,22 +282,5 @@
                     android:visibility="invisible"
                     app:srcCompat="@color/colorPrimaryDark" />
         </LinearLayout>
-
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="monospace"
-            android:lineSpacingExtra="10sp"
-            android:text="Chizu      Simo"
-            android:textSize="24sp"
-            android:typeface="serif"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.602"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/container"
-            app:layout_constraintVertical_bias="1.0"
-            tools:targetApi="jelly_bean" />
 
 </android.support.constraint.ConstraintLayout>
