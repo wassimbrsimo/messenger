@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000">
+
+        <LinearLayout
+            android:id="@+id/vieww"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="bottom"
+            android:orientation="vertical"
+            android:weightSum="100"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:id="@+id/Toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="39dp"
+                    android:background="@drawable/bubble_rectangle"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                        <LinearLayout
+                            android:id="@+id/title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_weight="50"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                                <TextView
+                                    android:id="@+id/reciever"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="10dp"
+                                    android:layout_alignParentTop="true"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_weight="50"
+                                    android:fontFamily="@font/amaranth_bold"
+                                    android:gravity="top"
+                                    android:text="Chahrazed"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/colorPrimary"
+                                    android:textSize="18sp" />
+
+                                <RelativeLayout
+                                    android:id="@+id/offline"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_below="@id/reciever"
+                                    android:layout_weight="50"
+                                    android:visibility="gone">
+
+                                        <TextView
+                                            android:id="@+id/last_active"
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_alignParentTop="true"
+                                            android:layout_centerHorizontal="true"
+                                            android:fontFamily="@font/assistant_semibold"
+                                            android:text="active il y a 15 mins"
+                                            android:textColor="@color/colorPrimary"
+                                            android:textSize="10sp" />
+
+                                </RelativeLayout>
+
+                                <RelativeLayout
+                                    android:id="@+id/online"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="0dp"
+                                    android:layout_alignParentBottom="true"
+                                    android:layout_below="@id/reciever"
+                                    android:layout_centerHorizontal="true"
+                                    android:layout_weight="50"
+                                    android:visibility="visible">
+
+                                        <LinearLayout
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:orientation="horizontal">
+
+                                                <TextView
+                                                    android:id="@+id/connected"
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_alignParentBottom="true"
+                                                    android:layout_centerHorizontal="true"
+                                                    android:layout_weight="1"
+                                                    android:fontFamily="@font/assistant_semibold"
+                                                    android:text="En ligne"
+                                                    android:textColor="@color/colorPrimary"
+                                                    android:textSize="10sp" />
+
+                                                <ImageView
+                                                    android:id="@+id/online_logo"
+                                                    android:layout_width="wrap_content"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_alignLeft="@+id/connected"
+                                                    android:layout_alignStart="@+id/connected"
+                                                    android:layout_alignTop="@+id/connected"
+
+                                                    android:layout_toRightOf="@id/connected"
+                                                    android:layout_weight="1"
+                                                    app:srcCompat="@android:drawable/presence_online"
+                                                    tools:layout_editor_absoluteX="202dp"
+                                                    tools:layout_editor_absoluteY="27dp" />
+                                        </LinearLayout>
+
+                                </RelativeLayout>
+                        </LinearLayout>
+
+                        <SeekBar
+                            android:id="@+id/colorslide"
+                            android:layout_width="wrap_content"
+                            android:layout_height="50dp"
+                            android:layout_weight="50"
+                            android:gravity="center"
+                            android:max="360"
+                            android:visibility="gone" />
+
+                        <ImageButton
+                            android:id="@+id/colorbtn"
+                            android:layout_width="41dp"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="bottom"
+                            android:layout_weight="1"
+                            android:background="@color/black_overlay"
+                            android:clickable="true"
+                            android:fontFamily="@font/actor"
+                            android:gravity="center"
+                            android:onClick="onClickBtn"
+                            android:scaleType="fitStart"
+                            android:text="Color"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="14dp"
+                            android:visibility="visible"
+                            app:srcCompat="@drawable/colors" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/central"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="100"
+                    android:orientation="vertical"
+                    android:weightSum="100"
+                    tools:layout_editor_absoluteY="50dp">
+
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/recycler_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_gravity="top"
+                            android:layout_weight="95"
+                            android:scrollbars="vertical"
+                            app:layout_constraintBottom_toTopOf="@+id/layout_chatbox"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            tools:ignore="MissingConstraints">
+
+                        </android.support.v7.widget.RecyclerView>
+
+                        <TextView
+                            android:id="@+id/type"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="5"
+                            android:text="Entrain d'écrire ..."
+                            android:textColor="@android:color/background_light"
+                            android:visibility="invisible" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/layout_chatbox"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/bubble_rectangle"
+                    android:minHeight="48dp"
+                    android:orientation="horizontal"
+                    android:paddingLeft="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent">
+
+                        <ImageButton
+                            android:id="@+id/cambutton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@color/black_overlay"
+                            app:srcCompat="@android:drawable/ic_menu_camera" />
+
+                        <ImageButton
+                            android:id="@+id/stickerbutton"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@color/black_overlay"
+                            app:srcCompat="@android:drawable/star_big_on" />
+
+                        <EditText
+                            android:id="@+id/textmsg"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:background="@android:color/transparent"
+                            android:fontFamily="@font/farsan"
+                            android:hint="Enter message"
+                            android:maxLines="6"
+                            android:textColor="@android:color/background_light"
+                            android:visibility="visible" />
+
+                        <Button
+                            android:id="@+id/send"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom"
+                            android:background="@color/black_overlay"
+                            android:clickable="true"
+                            android:fontFamily="@font/actor"
+                            android:gravity="center"
+                            android:onClick="onClickBtn"
+                            android:text="SEND"
+                            android:textColor="@android:color/background_light"
+                            android:textSize="14dp" />
+
+                </LinearLayout>
+
+        </LinearLayout>
+
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+                <ImageView
+                    android:id="@+id/expanded_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:visibility="invisible" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <LinearLayout
+            android:id="@+id/first"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="113dp">
+
+                <ImageButton
+                    android:id="@+id/gurl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:cropToPadding="false"
+                    android:visibility="invisible"
+                    app:srcCompat="@color/colorAccent" />
+
+                <ImageButton
+                    android:id="@+id/boy"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:cropToPadding="false"
+                    android:visibility="invisible"
+                    app:srcCompat="@color/colorPrimaryDark" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:lineSpacingExtra="10sp"
+            android:text="Chizu      Simo"
+            android:textSize="24sp"
+            android:typeface="serif"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.602"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/container"
+            app:layout_constraintVertical_bias="1.0"
+            tools:targetApi="jelly_bean" />
+
+</android.support.constraint.ConstraintLayout>
